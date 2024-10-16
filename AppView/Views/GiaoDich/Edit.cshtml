@@ -1,0 +1,71 @@
+﻿@model AppView.Models.GiaoDichTienMaHoa
+
+<h2>Sửa Giao Dịch</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" name="ID" value="@Model.ID" />
+
+    <div class="form-group">
+        <label for="TenNguoiGui">Tên Người Gửi</label>
+        <input type="text" class="form-control" id="TenNguoiGui" name="TenNguoiGui" value="@Model.TenNguoiGui" />
+    </div>
+
+    <div class="form-group">
+        <label for="TenNguoiNhan">Tên Người Nhận</label>
+        <input type="text" class="form-control" id="TenNguoiNhan" name="TenNguoiNhan" value="@Model.TenNguoiNhan" />
+    </div>
+
+    <div class="form-group">
+        <label for="LoaiTienMaHoa">Loại Tiền Mã Hóa</label>
+        <input type="text" class="form-control" id="LoaiTienMaHoa" name="LoaiTienMaHoa" value="@Model.LoaiTienMaHoa" />
+    </div>
+
+    <div class="form-group">
+        <label for="SoLuong">Số Lượng</label>
+        <input type="number" class="form-control" id="SoLuong" name="SoLuong" value="@Model.SoLuong" />
+    </div>
+
+    <div class="form-group">
+        <label for="NgayGiaoDich">Ngày Giao Dịch</label>
+        <input type="date" class="form-control" id="NgayGiaoDich" name="NgayGiaoDich" value="@Model.NgayGiaoDich.ToString("yyyy-MM-dd")" />
+    </div>
+
+    <div class="form-group">
+        <label for="PhiGiaoDich">Phí Giao Dịch</label>
+        <input type="number" class="form-control" id="PhiGiaoDich" name="PhiGiaoDich" value="@Model.PhiGiaoDich" />
+    </div>
+
+    <div class="form-group">
+        <label for="TrangThai">Trạng Thái</label>
+        <select class="form-control" id="TrangThai" name="TrangThai">
+            @if (Model.TrangThai == "Đang xử lý")
+            {
+                <option value="Đang xử lý" selected>Đang xử lý</option>
+            }
+            else
+            {
+                <option value="Đang xử lý">Đang xử lý</option>
+            }
+
+            @if (Model.TrangThai == "Thành công")
+            {
+                <option value="Thành công" selected>Thành công</option>
+            }
+            else
+            {
+                <option value="Thành công">Thành công</option>
+            }
+
+            @if (Model.TrangThai == "Thất bại")
+            {
+                <option value="Thất bại" selected>Thất bại</option>
+            }
+            else
+            {
+                <option value="Thất bại">Thất bại</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
+</form>
